@@ -1,10 +1,12 @@
 import Personaje from "./Personaje.js";
+import Reino from "./Reino.js";
 
 class Casa{
     #nombre;
     #lema;
     #miembros = [];
-    constructor(nombre, lema, miembros = []){
+    #reino;
+    constructor(nombre, lema, miembros = [], reino = null){
         this.#nombre = nombre;
         this.#lema = lema;
         this.#miembros = [];
@@ -29,6 +31,14 @@ class Casa{
                 );
             }
         }
+        if (reino instanceof Reino) {
+            this.#reino = reino;
+            if (!reino.getCasas().includes(this)) {
+                reino.añadirCasas(this);
+            }
+        } else {
+            this.#reino = null;
+        }
     }
     getNombre(){
         return this.#nombre;
@@ -47,6 +57,19 @@ class Casa{
     }
     setMiembros(miembros){
         this.#miembros = miembros;
+    }
+    getReino(){
+        return this.#reino;
+    }
+    setReino(reino){
+        if (reino instanceof Reino) {
+            this.#reino = reino;
+            if (!reino.getCasas().includes(this)) {
+                reino.añadirCasas(this);
+            }
+        } else {
+            console.log("no se ha podido añadir " + reino + " porque no es un reino");
+        }
     }
     añadirMiembros(miembros){ /* Si miembros es un array, se va elemento por elemento comprobando si son instancias de personajes, en cuyo caso se añaden al array miembros del objeto */
         if (Array.isArray(miembros)) {

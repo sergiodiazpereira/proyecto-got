@@ -11,6 +11,7 @@ class Reino{
             casas.forEach(casa => {
                 if (casa instanceof Casa) {
                     this.#casas.push(casa);
+                    casa.setReino(this);
                     console.log("La casa " + casa.getNombre() + " ha sido añadida al reino de " + this.#nombre);
                 } else {
                     console.log(casa + " no es una casa asi que no se puede añadir" +
@@ -21,9 +22,10 @@ class Reino{
         } else {
             if (casas instanceof Casa) {
                 this.#casas.push(casas);
+                casas.setReino(this);
                 console.log("La casa " + casas.getNombre() + " ha sido añadida al reino de " + this.#nombre);
             } else {
-                console.log(casa + " no es una casa asi que no se puede añadir" +
+                console.log(casas + " no es una casa asi que no se puede añadir" +
                                    " a las casas del reino " + this.#nombre
                 );                  
             }
@@ -50,11 +52,12 @@ class Reino{
     setNombre(nombre){
         this.#nombre = nombre;
     }
-    setCasas(casas){ /* Si casas es un array, se va elemento por elemento comprobando si son instancias de casas, en cuyo caso se añaden al array casas del objeto */
+    añadirCasas(casas){ /* Si casas es un array, se va elemento por elemento comprobando si son instancias de casas, en cuyo caso se añaden al array casas del objeto */
         if (Array.isArray(casas)) {
             casas.forEach(casa => {
                 if (casa instanceof Casa) {
                     this.#casas.push(casa);
+                    casa.setReino(this);
                     console.log("La casa " + casa.getNombre() + " ha sido añadida al reino de " + this.#nombre);
                 } else {
                     console.log(casa + " no es una casa asi que no se puede añadir" +
@@ -65,6 +68,7 @@ class Reino{
         } else {
             if (casas instanceof Casa) {
                 this.#casas.push(casas);
+                casas.setReino(this);
                 console.log("La casa " + casas.getNombre() + " ha sido añadida al reino de " + this.#nombre);
             } else {
                 console.log(casa + " no es una casa asi que no se puede añadir" +

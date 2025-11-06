@@ -1,4 +1,6 @@
 import Personaje from "../Personaje.js";
+import Reino from "../Reino.js";
+import Casa from "../Casa.js";
 
 class Consejero extends Personaje {
     #especialidad;
@@ -16,7 +18,7 @@ class Consejero extends Personaje {
         console.log(this.getNombre() + " no lucha con armas, sino con palabras e inteligencia");
     }
     aconsejar(){
-        console.log("El consejero " + this.getNombre() + " te puede aconsejar sobre " + this.#especialidad);
+        console.log("El consejero " + this.getNombre() + " aconseja a " + this.getCasa().getReino().getRey().getNombre() + " sobre " + this.#especialidad);
     }
 }
 

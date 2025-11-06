@@ -1,0 +1,23 @@
+import Casa from "./clases/Casa.js";
+import Reino from "./clases/Reino.js";
+import Personaje from "./clases/Personaje.js";
+import Arma from "./clases/Arma.js";
+import Guerrero from "./clases/personajesEspeciales/Guerrero.js";
+import Consejero from "./clases/personajesEspeciales/Consejero.js";
+import Rey from "./clases/personajesEspeciales/Rey.js";
+
+let $arma1 = new Arma("Garra", 25, "espada");
+let $casa1 = new Casa("Stark", "Los stark los mejores");
+let $guerrero1 = new Guerrero("Jon Snow", 20, true, $casa1, $arma1);
+$guerrero1.presentacion();
+$guerrero1.luchar();
+$guerrero1.entrenar();
+let $casa2 = new Casa("Lannister", "Los lennister los mejores");
+let $rey1 = new Rey("Robert Baratheon", 37, true, $casa2, 20);
+let $reino1 = new Reino("Poniente", $casa2, $rey1);
+let $consejero1 = new Consejero("Tyrion Lannister", 30, true, $casa2, "politica");
+$consejero1.luchar();
+$consejero1.aconsejar();
+$rey1.presentacion();
+$rey1.gobernar();
+$rey1.luchar();
